@@ -50,11 +50,11 @@
   .label{font-family:"Fraunces",serif;font-weight:600;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--espresso);color:var(--paper);font-family:"Nunito";font-weight:800;font-size:.9rem}
 
-  input[type=text]{
+  input[type=text],input[type=tel]{
     width:100%;font:inherit;font-size:1.1rem;padding:15px 16px;border-radius:14px;
     border:2px solid var(--line);background:var(--paper);color:var(--ink);outline:none;transition:border-color .2s
   }
-  input[type=text]:focus{border-color:var(--crema)}
+  input[type=text]:focus,input[type=tel]:focus{border-color:var(--crema)}
 
   .menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .drink{
@@ -62,6 +62,7 @@
     padding:14px 10px 14px;text-align:center;cursor:pointer;font:inherit;color:inherit;
     transition:transform .15s,border-color .2s,box-shadow .2s
   }
+  .drink:last-child:nth-child(odd){grid-column:span 2}
   .drink:active{transform:scale(.97)}
   .drink svg{width:78px;height:78px;display:block;margin:0 auto 6px}
   .drink .n{font-weight:800;font-size:1rem;line-height:1.2}
@@ -81,6 +82,9 @@
     background:var(--paper);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px
   }
   .seg button.sel{border-color:var(--accent);background:#fff6ea}
+  .phone{display:none;margin-top:12px}
+  .phone.show{display:block;animation:pop .25s ease}
+  .hint{color:var(--muted);font-size:.88rem;margin-top:7px;line-height:1.4}
 
   .bar{
     position:fixed;left:0;right:0;bottom:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom));
@@ -144,6 +148,18 @@
     </div>
   </section>
 
+  <section class="step">
+    <div class="label"><span class="num" id="svcNum">3</span>Wie kommt der Kaffee zu dir?</div>
+    <div class="seg" id="service">
+      <button type="button" data-service="Lieferung">🛵 Lieferservice</button>
+      <button type="button" data-service="Abholung">🙋 Selbst abholen</button>
+    </div>
+    <div class="phone" id="phoneBox">
+      <input type="tel" id="phone" placeholder="Deine Handynummer" autocomplete="tel" inputmode="tel" maxlength="20">
+      <p class="hint">Sobald dein Kaffee fertig ist, schreibe ich dir per WhatsApp.</p>
+    </div>
+  </section>
+
   <footer>Mit Liebe gebrüht ☕</footer>
 </div>
 
@@ -176,6 +192,7 @@
     { id:"doppio",     name:"Doppelter Espresso",  desc:"Die doppelte Ladung",           article:"einen doppelten Espresso",milk:false, cup:"small", layers:[["espresso",.78],["crema",.12]] },
     { id:"macchiato",  name:"Espresso Macchiato",  desc:"Espresso mit Milchschaumhaube",  article:"einen Espresso Macchiato",milk:true,  cup:"small", layers:[["espresso",.55],["foam",.3]] },
     { id:"cappuccino", name:"Cappuccino",          desc:"Espresso, Milch und viel Schaum",article:"einen Cappuccino",        milk:true,  cup:"big",   layers:[["espresso",.3],["milk",.3],["foam",.32]] },
+    { id:"latte",      name:"Latte Macchiato",     desc:"Viel Milch, Espresso und Schaum im Glas",article:"einen Latte Macchiato",milk:true, cup:"tall", layers:[["milk",.5],["espresso",.18],["foam",.24]] },
     { id:"flatwhite",  name:"Flat White",          desc:"Doppelter Espresso, feiner Schaum",article:"einen Flat White",      milk:true,  cup:"big",   layers:[["espresso",.4],["milk",.42],["foam",.08]] },
     { id:"americano",  name:"Americano",           desc:"Espresso mit heißem Wasser",     article:"einen Americano",         milk:false, cup:"big",   layers:[["espresso",.82],["crema",.08]] },
   ];
@@ -183,8 +200,8 @@
   const COLORS = { espresso:"#3b2116", crema:"#c98a4b", milk:"#ead7bd", foam:"#fffdf8" };
 
   function cupSVG(d){
-    const small = d.cup === "small";
-    const x = small ? 20 : 12, w = small ? 40 : 56, top = small ? 30 : 18, bottom = 66;
+    const small = d.cup === "small", tall = d.cup === "tall";
+    const x = tall ? 24 : small ? 20 : 12, w = tall ? 32 : small ? 40 : 56, top = tall ? 6 : small ? 30 : 18, bottom = 66;
     const h = bottom - top;
     let y = bottom, rects = "";
     d.layers.forEach(([c, p]) => {
@@ -196,16 +213,28 @@
       <defs><clipPath id="${id}"><path d="M${x} ${top}h${w}v${h-10}a10 10 0 0 1-10 10h-${w-20}a10 10 0 0 1-10-10z"/></clipPath></defs>
       <g clip-path="url(#${id})"><rect x="${x}" y="${top}" width="${w}" height="${h}" fill="#f4ece0"/>${rects}</g>
       <path d="M${x} ${top}h${w}v${h-10}a10 10 0 0 1-10 10h-${w-20}a10 10 0 0 1-10-10z" fill="none" stroke="#2b1a12" stroke-width="2.5"/>
-      <path d="M${x+w} ${top+8}h4a7 7 0 0 1 0 14h-4" fill="none" stroke="#2b1a12" stroke-width="2.5"/>
+      ${tall ? "" : `<path d="M${x+w} ${top+8}h4a7 7 0 0 1 0 14h-4" fill="none" stroke="#2b1a12" stroke-width="2.5"/>`}
       <ellipse cx="${x+w/2}" cy="72" rx="${w/2+8}" ry="3.5" fill="#c98a4b" opacity=".55"/>
     </svg>`;
   }
 
-  const state = { drink:null, milk:null };
+  const state = { drink:null, milk:null, service:null };
   const $ = s => document.querySelector(s);
-  const nameEl = $("#name"), orderBtn = $("#order");
+  const nameEl = $("#name"), phoneEl = $("#phone"), orderBtn = $("#order");
 
-  try { nameEl.value = localStorage.getItem("kaffeebar-name") || ""; } catch(e){}
+  try {
+    nameEl.value = localStorage.getItem("kaffeebar-name") || "";
+    phoneEl.value = localStorage.getItem("kaffeebar-phone") || "";
+  } catch(e){}
+
+  // Handynummer ins internationale Format für WhatsApp bringen (Standard: Deutschland)
+  function waNumber(){
+    let p = phoneEl.value.replace(/[^\d+]/g, "");
+    if (p.startsWith("+")) p = p.slice(1);
+    else if (p.startsWith("00")) p = p.slice(2);
+    else if (p.startsWith("0")) p = "49" + p.slice(1);
+    return p.replace(/\D/g, "");
+  }
 
   const menu = $("#menu");
   DRINKS.forEach(d => {
@@ -216,6 +245,7 @@
       state.drink = d;
       document.querySelectorAll(".drink").forEach(x => x.classList.toggle("sel", x === b));
       $("#milkStep").classList.toggle("show", d.milk);
+      $("#svcNum").textContent = d.milk ? "4" : "3";
       if (!d.milk) state.milk = null;
       update();
       if (d.milk && !state.milk) setTimeout(() => $("#milkStep").scrollIntoView({behavior:"smooth", block:"center"}), 80);
@@ -229,10 +259,21 @@
     update();
   }));
 
+  document.querySelectorAll("#service button").forEach(b => b.addEventListener("click", () => {
+    state.service = b.dataset.service;
+    document.querySelectorAll("#service button").forEach(x => x.classList.toggle("sel", x === b));
+    const pickup = state.service === "Abholung";
+    $("#phoneBox").classList.toggle("show", pickup);
+    if (pickup && !phoneEl.value) setTimeout(() => phoneEl.focus(), 100);
+    update();
+  }));
+
   nameEl.addEventListener("input", update);
+  phoneEl.addEventListener("input", update);
 
   function ready(){
-    return nameEl.value.trim() && state.drink && (!state.drink.milk || state.milk);
+    return nameEl.value.trim() && state.drink && (!state.drink.milk || state.milk)
+      && state.service && (state.service !== "Abholung" || waNumber().length >= 9);
   }
 
   function update(){
@@ -242,6 +283,9 @@
     if (state.drink){
       s = state.drink.name + (state.milk ? " mit " + state.milk : "");
       if (state.drink.milk && !state.milk) s += " · Milch wählen";
+      if (state.service) s += state.service === "Abholung" ? " zum Abholen" : " geliefert";
+      else s += " · Lieferung oder Abholung?";
+      if (state.service === "Abholung" && waNumber().length < 9) s += " · Nummer fehlt";
       if (!n) s += " · Name fehlt noch";
     }
     $("#summary").textContent = s;
@@ -252,17 +296,33 @@
     if (!ready()) return;
     const n = nameEl.value.trim();
     const d = state.drink;
-    const text = `${n} möchte ${d.article}${state.milk ? " mit " + state.milk : ""}`;
+    const pickup = state.service === "Abholung";
+    const milkTxt = state.milk ? " mit " + state.milk : "";
+    const nom = d.id === "doppio" ? "doppelter Espresso" : d.name;
+    const text = `${n} möchte ${d.article}${milkTxt}\n` + (pickup ? "Holt ihn selbst ab" : "Bitte vorbeibringen");
+    const payload = {
+      topic: NTFY_TOPIC,
+      title: (pickup ? "Abholung: " : "Lieferung: ") + n,
+      message: text,
+      tags: ["coffee"],
+      priority: 4
+    };
+    if (pickup){
+      const wa = `Hey ${n}, dein ${nom}${milkTxt} ist fertig ☕ Du kannst ihn dir jetzt abholen.`;
+      payload.actions = [{ action:"view", label:"Kaffee fertig ✅", url:`https://wa.me/${waNumber()}?text=${encodeURIComponent(wa)}`, clear:true }];
+    }
     orderBtn.disabled = true; orderBtn.textContent = "Wird geschickt …";
     try {
-      const res = await fetch("https://ntfy.sh/", {
-        method:"POST",
-        body: JSON.stringify({ topic:NTFY_TOPIC, title:"Neue Bestellung: " + n, message:text, tags:["coffee"], priority:4 })
-      });
+      const res = await fetch("https://ntfy.sh/", { method:"POST", body: JSON.stringify(payload) });
       if (!res.ok) throw new Error(res.status);
-      try { localStorage.setItem("kaffeebar-name", n); } catch(e){}
+      try {
+        localStorage.setItem("kaffeebar-name", n);
+        if (pickup) localStorage.setItem("kaffeebar-phone", phoneEl.value.trim());
+      } catch(e){}
       $("#doneTitle").textContent = "Läuft, " + n + "!";
-      $("#doneText").textContent = `${d.name}${state.milk ? " mit " + state.milk : ""} ist bestellt. Nico legt gleich los.`;
+      $("#doneText").textContent = `${d.name}${milkTxt} ist bestellt. ` + (pickup
+        ? "Sobald er fertig ist, bekommst du eine WhatsApp."
+        : "Ich leg gleich los und bring ihn dir vorbei.");
       $("#done").classList.add("show");
     } catch(e){
       $("#err").style.display = "block";
@@ -274,9 +334,11 @@
 
   $("#again").addEventListener("click", () => {
     $("#done").classList.remove("show");
-    state.drink = null; state.milk = null;
-    document.querySelectorAll(".drink, #milk button").forEach(x => x.classList.remove("sel"));
+    state.drink = null; state.milk = null; state.service = null;
+    document.querySelectorAll(".drink, #milk button, #service button").forEach(x => x.classList.remove("sel"));
     $("#milkStep").classList.remove("show");
+    $("#phoneBox").classList.remove("show");
+    $("#svcNum").textContent = "3";
     window.scrollTo({top:0, behavior:"smooth"});
     update();
   });
