@@ -10,6 +10,6 @@ ref_text = open("tts/text.txt").read().strip()
 prompt = m.create_voice_clone_prompt(ref_audio="out/qwen_erzaehler_warm.mp3", ref_text=ref_text, x_vector_only_mode=False)
 for it in mine:
     t = time.time()
-    wavs, sr = m.generate_voice_clone(text=it["text"], language="German", voice_clone_prompt=prompt, max_new_tokens=2048)
+    wavs, sr = m.generate_voice_clone(text=it["text"], language="German", voice_clone_prompt=prompt, max_new_tokens=int(len(it["text"]) / 11 * 12 * 1.7) + 40)
     sf.write(f"out/vo/{it['id']}.wav", wavs[0], sr)
     print(it["id"], round(time.time() - t), "s ->", round(len(wavs[0]) / sr, 1), "s", flush=True)
