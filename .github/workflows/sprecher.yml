@@ -27,7 +27,7 @@ jobs:
         if: matrix.engine == 'xtts'
         run: |
           pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install -q "coqui-tts==0.24.2" six click "transformers==4.46.2" torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
+          pip install -q "coqui-tts==0.24.2" six click torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
           COQUI_TOS_AGREED=1 python -u tts/xtts.py
       - name: Speichern
         if: always()
