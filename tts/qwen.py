@@ -1,4 +1,4 @@
-import os, time, torch, soundfile as sf
+import os, sys, time, torch, soundfile as sf
 from qwen_tts import Qwen3TTSModel
 os.makedirs("out", exist_ok=True)
 text = open("tts/text.txt").read().strip()
@@ -8,6 +8,7 @@ for name, ins in [
     ("qwen_erzaehler_warm", "Ruhige, warme, tiefe Männerstimme eines Dokumentarfilm-Erzählers, mittleres Alter, entspannt und ohne Eile, freundlich erklärend, natürlicher Sprachfluss."),
     ("qwen_erzaehler_hell", "Sympathische, klare Männerstimme um die dreißig, ruhig und erklärend wie in einem hochwertigen Erklärvideo, natürliche Betonung, entspannt."),
 ]:
+    if sys.argv[1] != name.replace("erzaehler_",""): continue
     t = time.time()
     wavs, sr = m.generate_voice_design(text=text, language="German", instruct=ins)
     sf.write(f"out/{name}.wav", wavs[0], sr)

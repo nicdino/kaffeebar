@@ -7,30 +7,35 @@ permissions:
 jobs:
   tts:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [xtts, qwen_warm, qwen_hell]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg sox
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
       - name: Qwen3
-        continue-on-error: true
+        if: startsWith(matrix.engine, 'qwen')
         run: |
           pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -q qwen-tts soundfile torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
-          pip list 2>/dev/null | grep -i -E "^torch|qwen|transformers" || true
-          python tts/qwen.py
+          python -u tts/qwen.py ${{ matrix.engine }}
       - name: XTTS
-        continue-on-error: true
+        if: matrix.engine == 'xtts'
         run: |
-          python -m venv /tmp/xv && /tmp/xv/bin/pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-          /tmp/xv/bin/pip install -q coqui-tts torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
-          COQUI_TOS_AGREED=1 /tmp/xv/bin/python tts/xtts.py
-      - run: |
-          mkdir -p out; ls -la out
+          pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q coqui-tts torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
+          COQUI_TOS_AGREED=1 python -u tts/xtts.py
+      - name: Speichern
+        if: always()
+        run: |
+          mkdir -p out
           for f in $(ls out/*.wav 2>/dev/null); do ffmpeg -y -loglevel error -i "$f" -b:a 128k "${f%.wav}.mp3" && rm "$f"; done
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add out
-          git commit -m "Audio erzeugt" || true
-          git push
+          git add out || true
+          git commit -m "Audio ${{ matrix.engine }}" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase -q origin sprecher && git push && break; sleep $((RANDOM % 10 + 3)); done
