@@ -7,13 +7,27 @@ permissions:
 jobs:
   tts:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install edge-tts
-      - run: python tts/run.py
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg sox
+      - name: Qwen3
+        continue-on-error: true
+        run: |
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q qwen-tts soundfile
+          python tts/qwen.py
+      - name: XTTS
+        continue-on-error: true
+        run: |
+          python -m venv /tmp/xv && /tmp/xv/bin/pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          /tmp/xv/bin/pip install -q coqui-tts
+          COQUI_TOS_AGREED=1 /tmp/xv/bin/python tts/xtts.py
       - run: |
+          mkdir -p out; ls -la out
+          for f in out/*.wav; do ffmpeg -y -loglevel error -i "$f" -b:a 128k "${f%.wav}.mp3" && rm "$f"; done
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add out

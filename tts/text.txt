@@ -1,0 +1,1 @@
+Gäste reservieren in der Stunde vor der Vorstellung einen Tisch für die Pause und bezahlen direkt, bar oder mit Karte. Wenn die Pause beginnt, stehen ihre Getränke schon auf dem Tisch. Das Tool merkt sich jede Bestellung, rechnet die Preise aus und sagt dir später genau, was du eindecken musst.
