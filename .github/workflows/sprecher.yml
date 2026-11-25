@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        engine: [xtts, qwen_warm, qwen_hell]
+        engine: [xtts]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,7 +27,7 @@ jobs:
         if: matrix.engine == 'xtts'
         run: |
           pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install -q coqui-tts torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
+          pip install -q coqui-tts six torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
           COQUI_TOS_AGREED=1 python -u tts/xtts.py
       - name: Speichern
         if: always()
