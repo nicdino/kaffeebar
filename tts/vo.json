@@ -1,0 +1,290 @@
+[
+{
+"id": "intro1",
+"text": "Willkommen im Kasa Hab. Das ist unser Tool für die Pausenreservierung im Saalbau Witten. In den nächsten Minuten zeige ich dir Schritt für Schritt, wie alles funktioniert."
+},
+{
+"id": "intro2",
+"text": "Die Idee ist ganz einfach. Gäste reservieren vor der Vorstellung einen Tisch für die Pause und bezahlen direkt. Wenn die Pause beginnt, stehen ihre Getränke schon bereit. Das Tool merkt sich jede Bestellung, rechnet alles aus und sagt dir später genau, was du eindecken musst."
+},
+{
+"id": "ov_side",
+"text": "Links findest du das Menü mit allen Bereichen. Pausenreservierung, Packliste, Summe, Veranstaltungen, Kalender und Abrechnung."
+},
+{
+"id": "ov_mini",
+"text": "Mit dem kleinen Pfeil oben klappst du das Menü ein, dann hast du mehr Platz für den Plan. Ein zweiter Klick klappt es wieder aus."
+},
+{
+"id": "ov_sync",
+"text": "Ganz unten links steht, ob alles gespeichert ist. Ein grüner Punkt mit Online gespeichert heißt, dass alle Kollegen auf ihren Geräten genau dasselbe sehen."
+},
+{
+"id": "ov_dark",
+"text": "Darüber kannst du zwischen hell und dunkel umschalten. Im dunklen Foyer ist der dunkle Modus angenehmer für die Augen. Das gilt nur für dein Gerät."
+},
+{
+"id": "ev_tab",
+"text": "Fangen wir mit den Veranstaltungen an. Hier lädst du einmal im Monat die Termin-PDF hoch."
+},
+{
+"id": "ev_up",
+"text": "Tipp auf PDF hochladen und wähl die Monatsliste aus. Das Tool liest die Termine selbst aus, mit Saal, Gästezahl, Einlass, Beginn, Pause und Ende."
+},
+{
+"id": "ev_list",
+"text": "Schon steht jede Veranstaltung in der Liste. Termine ohne Kasa sind durchgestrichen, dort machen wir nichts. Hinweise wie Sektempfang oder Künstlercatering stehen direkt darunter."
+},
+{
+"id": "cal_tab",
+"text": "Im Kalender siehst du dieselben Termine als Monatsübersicht. Tipp einen Tag an, dann stehen rechts alle Details."
+},
+{
+"id": "cal_day",
+"text": "Mit Diese Veranstaltung starten legst du direkt los. Das geht genauso über Starten in der Liste."
+},
+{
+"id": "ne_btn",
+"text": "Bevor die ersten Gäste kommen, startest du die neue Veranstaltung. Tipp dafür links unten auf Neue Veranstaltung."
+},
+{
+"id": "ne_modal",
+"text": "Das Tool zeigt dir die nächsten Termine. Die Veranstaltung von heute ist schon ausgewählt."
+},
+{
+"id": "ne_warn",
+"text": "Achtung, dabei werden alle Reservierungen und auch die komplette Abrechnung vom letzten Mal gelöscht. Lade die Excel-Datei vom letzten Abend also immer vorher herunter."
+},
+{
+"id": "ne_go",
+"text": "Mit Ja, alles entfernen geht es los. Oben steht jetzt Läuft gerade mit dem Namen der Veranstaltung."
+},
+{
+"id": "ne_pick",
+"text": "Du kannst die Veranstaltung auch oben über dieses Feld auswählen. Steht ein Termin nicht in der Liste, trägst du dort einfach einen eigenen Namen ein."
+},
+{
+"id": "p3_intro",
+"text": "Das Herzstück ist der Tischplan. Er zeigt das Foyer in Drei-D, mit Theken, Treppen und allen Tischen."
+},
+{
+"id": "p3_pan",
+"text": "Mit gedrückter Maus oder einem Finger verschiebst du die Ansicht. Mit dem Mausrad oder zwei Fingern zoomst du rein und raus."
+},
+{
+"id": "p3_comp",
+"text": "Zum Drehen ziehst du den Kompass unten rechts. Am Handy drehst du einfach mit zwei Fingern."
+},
+{
+"id": "p3_2d",
+"text": "Mit Zwei-D schaust du von oben auf den Plan, mit Drei-D geht es zurück. Das kleine Haus holt immer die Startansicht zurück, falls du dich mal verdreht hast."
+},
+{
+"id": "p3_oben",
+"text": "Mit Oben und Unten wechselst du zwischen den Etagen."
+},
+{
+"id": "p3_full",
+"text": "Mit Vollbild füllt der Plan den ganzen Bildschirm. Das ist besonders am Tablet praktisch. Mit derselben Taste geht es wieder zurück."
+},
+{
+"id": "p3_legend",
+"text": "Die Farben sagen dir sofort, was los ist. Weiß ist frei. Rot heißt, die Bestellung läuft noch. Schwarz mit Haken heißt fertig und bezahlt."
+},
+{
+"id": "o_tbl",
+"text": "Ein Gast möchte Tisch vierzehn. Tipp einfach auf den Tisch. Die Ansicht fliegt hin und das Bestellfenster öffnet sich."
+},
+{
+"id": "o_cat",
+"text": "Rechts wählst du die Kategorie und tippst die Produkte an. Jedes Antippen legt ein Stück dazu, die rote Zahl zeigt, wie viele es schon sind."
+},
+{
+"id": "o_more",
+"text": "Du kannst beliebig zwischen den Kategorien wechseln. Hier noch ein Bier und eine Brezel."
+},
+{
+"id": "o_minus",
+"text": "Vertippt? Mit Minus nimmst du eins wieder weg."
+},
+{
+"id": "o_name",
+"text": "Trag den Namen des Gasts ein und bei Bedarf eine Anmerkung, zum Beispiel einen Geburtstag oder einen Sonderwunsch."
+},
+{
+"id": "o_seat",
+"text": "Mit diesem Schalter legst du fest, ob der Gast am Stehtisch steht oder einen Sitzplatz mit Stühlen bekommt."
+},
+{
+"id": "o_glass",
+"text": "Darunter rechnet das Tool aus, welche Gläser auf den Tisch müssen. Und unten steht der Gesamtbetrag, den du direkt kassierst."
+},
+{
+"id": "o_done",
+"text": "Ist bezahlt, tippst du auf Fertig. Der Tisch wird schwarz und ist gegen versehentliche Änderungen gesperrt."
+},
+{
+"id": "d_btn",
+"text": "Manchmal weiß der Gast zuerst nur, was er trinken möchte. Dafür gibt es oben den Knopf Neue Bestellung, Tisch später."
+},
+{
+"id": "d_items",
+"text": "Du nimmst die Bestellung ganz normal auf."
+},
+{
+"id": "d_pick",
+"text": "Dann tippst du auf Tisch wählen und anschließend im Plan auf den Tisch, den sich der Gast aussucht. Die Bestellung landet sofort dort."
+},
+{
+"id": "s_search",
+"text": "Du findest ein Produkt nicht? Tipp ins Suchfeld und schreib einfach los. Mit dem kleinen Kreuz kommst du zurück zu den Kategorien."
+},
+{
+"id": "h_hold",
+"text": "Manche Gäste wollen nur einen Tisch freihalten und erst in der Pause bestellen. Dann tippst du auf Nur Tisch reservieren, trägst den Namen ein und tippst auf Fertig."
+},
+{
+"id": "g_grp",
+"text": "Für größere Gruppen stellst du Tische zusammen. Öffne den Haupttisch und tipp auf Tische zusammenstellen."
+},
+{
+"id": "g_add",
+"text": "Jetzt tippst du alle Tische an, die dazugehören, und bestätigst oben mit Fertig. Bestellt wird dann für die ganze Gruppe gemeinsam."
+},
+{
+"id": "z_zone",
+"text": "Auch an der Theke und auf der Sitztreppe kann man Plätze reservieren. Tipp auf das Schild mit Plus Platz."
+},
+{
+"id": "z_new",
+"text": "Mit Neuer Platz bekommt der Gast den nächsten freien Platz. Die Plätze werden einfach durchgezählt."
+},
+{
+"id": "z_order",
+"text": "Bestellt wird wie am Tisch. Heißgetränke und Aperitifs werden übrigens erst kurz vor der Pause gemacht, das steht später auch in der Packliste."
+},
+{
+"id": "e_open",
+"text": "Ein Gast will noch etwas dazu? Tipp auf seinen fertigen Tisch. Die Produkte sind erst mal gesperrt."
+},
+{
+"id": "e_unlock",
+"text": "Tipp auf Bearbeiten, dann ist der Tisch wieder offen. Produkt dazu, Aufpreis kassieren und wieder auf Fertig."
+},
+{
+"id": "e_del",
+"text": "Sagt ein Gast ab, tippst du unten auf Reservierung löschen und bestätigst. Dann ist der Tisch wieder frei."
+},
+{
+"id": "c_add",
+"text": "Fehlt mal ein Produkt, legst du es unten bei den Produkten über Eigenes Produkt hinzufügen an, mit Name, Preis und Kategorie. Alle Kollegen sehen es dann auch."
+},
+{
+"id": "p_tab",
+"text": "Während der Vorstellung bereitest du die Pause vor. Dafür ist die Packliste da."
+},
+{
+"id": "p_top",
+"text": "Ganz oben stehen die Tische, die gedeckt werden. Darunter siehst du, was in die Kühlhaus-Kiste kommt und wie viele Gläser und Teller du brauchst."
+},
+{
+"id": "p_tables",
+"text": "Für jeden Tisch steht genau da, was drauf muss, mit Name und Anmerkung. Das stellst du etwa fünfzehn Minuten vor der Pause hin."
+},
+{
+"id": "p_wine",
+"text": "Wein und Sekt werden nicht vorher hingestellt. Kurz vor der Pause gehst du mit den Flaschen rum und schenkst ein. Wie viele Flaschen du mitnehmen musst, steht direkt dabei."
+},
+{
+"id": "p_ges",
+"text": "Unter Gesamt siehst du alles für beide Etagen zusammen, perfekt für die Liste im Kühlhaus."
+},
+{
+"id": "k_tab",
+"text": "Unter Summe steht, wie viel insgesamt reserviert wurde, aufgeteilt nach unten und oben."
+},
+{
+"id": "r_tab",
+"text": "Nach der Veranstaltung geht es in die Abrechnung. Hier machst du den Kassenbericht und zählst die Kasse, ganz ohne Excel abzutippen."
+},
+{
+"id": "r_auto",
+"text": "Veranstaltung und Datum stehen schon drin. Flaschen aus der Pausenreservierung sind bereits eingetragen, die musst du nicht noch mal zählen."
+},
+{
+"id": "r_count",
+"text": "Für alles andere tippst du die verkaufte Menge ins kleine Feld und drückst auf Plus. Mit Enter springst du direkt in die nächste Zeile."
+},
+{
+"id": "r_cards",
+"text": "Oben trägst du die Beträge der beiden Kartengeräte ein und gegebenenfalls eine Rechnung. Was bar in der Kasse sein muss, rechnet das Tool selbst aus."
+},
+{
+"id": "kb1",
+"text": "Unter Kassenbestand eins zählst du das Geld. Für jeden Schein und jede Münze die Anzahl eintragen."
+},
+{
+"id": "kb1_diff",
+"text": "Unten vergleicht das Tool, was in der Kasse ist, mit dem, was drin sein müsste. Grün heißt, alles passt. Rot heißt, es fehlt etwas."
+},
+{
+"id": "kb2",
+"text": "Unter Kassenbestand zwei siehst du, was für die nächste Veranstaltung in der Kasse bleibt, meistens fünfhundert Euro. Die nächste Veranstaltung trägt das Tool aus dem Kalender selbst ein."
+},
+{
+"id": "kb2_take",
+"text": "Das Tool sagt dir genau, welche Scheine und Münzen du rausnimmst. Willst du es anders, änderst du einfach eine Anzahl und der Rest rechnet sich neu."
+},
+{
+"id": "x_dl",
+"text": "Zum Schluss tippst du auf Excel herunterladen. Dann hast du den fertigen Kassenbericht als Datei."
+},
+{
+"id": "pa_btn",
+"text": "Stehen die Tische mal anders, passt du den Plan selbst an. Tipp im Tischplan auf Plan anpassen."
+},
+{
+"id": "pa_drag",
+"text": "Jetzt kannst du jeden Tisch einfach an seine neue Stelle ziehen."
+},
+{
+"id": "pa_sel",
+"text": "Tippst du einen Tisch an, kannst du die Nummer ändern, die Art wechseln oder ihn entfernen."
+},
+{
+"id": "pa_new",
+"text": "Neue Tische fügst du hier hinzu, als runden oder eckigen Stehtisch oder als Sitzplatz."
+},
+{
+"id": "pa_done",
+"text": "Ganz wichtig, erst mit Fertig wird der neue Plan gespeichert und für alle übernommen. Standardplan holt den ursprünglichen Plan zurück, falls mal etwas schiefgeht."
+},
+{
+"id": "f_sync",
+"text": "Steht unten links nicht Online gespeichert, sondern Verbindung weg, bitte neu laden, war kurz das Internet weg. Lade die Seite neu, dann ist alles wieder da."
+},
+{
+"id": "f_locked",
+"text": "Ein Tisch lässt sich nicht ändern? Dann ist er fertig. Erst auf Bearbeiten tippen."
+},
+{
+"id": "f_group",
+"text": "Ein Tisch lässt sich nicht zur Gruppe nehmen? Dann hat er schon eine eigene Reservierung. Nimm einen freien Tisch oder lösch die einzelne Reservierung vorher."
+},
+{
+"id": "f_pdf",
+"text": "Die Termin-PDF lässt sich nicht einlesen? Dafür braucht das Gerät Internet. Und es muss die Monatsliste mit den Terminen sein."
+},
+{
+"id": "f_two",
+"text": "Und noch ein Tipp. Bearbeitet nie zu zweit gleichzeitig denselben Tisch, sprecht euch kurz ab."
+},
+{
+"id": "sum",
+"text": "Hier nochmal der ganze Abend auf einen Blick."
+},
+{
+"id": "outro",
+"text": "Das war's. Probier am besten alles einmal in Ruhe aus. Und wenn du Fragen hast, meld dich einfach bei Nico. Viel Spaß und eine entspannte Pause!"
+}
+]

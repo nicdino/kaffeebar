@@ -7,35 +7,26 @@ permissions:
 jobs:
   tts:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     strategy:
       fail-fast: false
       matrix:
-        engine: [xtts]
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
-      - name: Qwen3
-        if: startsWith(matrix.engine, 'qwen')
+      - name: Qwen3 Klon
         run: |
           pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -q qwen-tts soundfile torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
-          python -u tts/qwen.py ${{ matrix.engine }}
-      - name: XTTS
-        if: matrix.engine == 'xtts'
-        run: |
-          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -q "coqui-tts==0.24.2" six click torch==2.5.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cpu
-          COQUI_TOS_AGREED=1 python -u tts/xtts.py
+          python -u tts/clone.py ${{ matrix.shard }} 16
       - name: Speichern
         if: always()
         run: |
-          mkdir -p out
-          for f in $(ls out/*.wav 2>/dev/null); do ffmpeg -y -loglevel error -i "$f" -b:a 128k "${f%.wav}.mp3" && rm "$f"; done
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add out || true
-          git commit -m "Audio ${{ matrix.engine }}" || exit 0
-          for i in 1 2 3 4 5; do git pull --rebase -q origin sprecher && git push && break; sleep $((RANDOM % 10 + 3)); done
+          git add out/vo || true
+          git commit -m "Sprecher Teil ${{ matrix.shard }}" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q origin sprecher && git push && break; sleep $((RANDOM % 15 + 3)); done
