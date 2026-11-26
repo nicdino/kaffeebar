@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0,1,2,3,4,5]
+        shard: [0,1,2,3,4,5,6,7]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,7 +21,7 @@ jobs:
         run: |
           pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -q qwen-tts soundfile torch==2.8.0 torchaudio==2.8.0 --extra-index-url https://download.pytorch.org/whl/cpu
-          python -u tts/clone.py ${{ matrix.shard }} 6
+          python -u tts/clone.py ${{ matrix.shard }} 8
       - name: Speichern
         if: always()
         run: |

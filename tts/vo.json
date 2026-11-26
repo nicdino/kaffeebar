@@ -1,1 +1,86 @@
-[{"id": "d_btn", "text": "Manchmal weiß der Gast zuerst nur, was er trinken möchte. Dafür gibt es oben rechts den roten Knopf Neue Bestellung, Tisch später. Tipp ihn an, dann öffnet sich das Bestellfenster ohne Tisch."}, {"id": "g_plan", "text": "Im Plan siehst du die Gruppe danach sofort. Der Haupttisch zeigt die Bestellung, und die anderen Tische zeigen zu 9."}, {"id": "z_order", "text": "Bestellt wird wie am Tisch. Heißgetränke und Aperitifs werden erst kurz vor der Pause gemacht und dann zusammen hingebracht. So steht es später auch in der Packliste."}, {"id": "p_cards1", "text": "Ganz wichtig sind die Tischkarten. Tipp dafür in der Packliste auf Tischkarten drucken."}, {"id": "p_cards2", "text": "Für jeden reservierten Tisch gibt es eine Karte mit Tischnummer, Name, Bestellung und den Gläsern, die auf den Tisch müssen. Die Karten druckst du aus, schneidest sie aus und legst sie auf die jeweiligen Tische."}, {"id": "p_tray", "text": "Dann machst du Tabletts oder den Rollwagen fertig, mit genau den Gläsern aus der Packliste, getrennt für unten und oben. Damit fährst du einmal durch das Foyer und stellst an jeden Tisch die Gläser, die auf seiner Karte stehen. Am Ende muss das genau aufgehen."}]
+[
+ {
+  "id": "a_login",
+  "text": "Wenn du den Kasa Hab öffnest, meldest du dich zuerst an. Trag deine Imehl und dein Passwort ein und tipp auf Anmelden."
+ },
+ {
+  "id": "a_reg",
+  "text": "Du hast noch kein Konto? Dann tippst du auf Neues Konto erstellen. Trag deinen Namen, deine Imehl und ein Passwort ein und tipp auf Konto erstellen."
+ },
+ {
+  "id": "a_wait",
+  "text": "Jetzt wartet dein Konto auf Freigabe. Du kannst die Seite ruhig schließen. Sobald du freigeschaltet bist, öffnest du sie einfach wieder und bist direkt drin."
+ },
+ {
+  "id": "a_local",
+  "text": "Ganz unten steht noch Ohne Konto nur auf diesem Gerät arbeiten. Das ist nur für den Notfall. Dann sieht nämlich niemand sonst, was du buchst."
+ },
+ {
+  "id": "a_team",
+  "text": "Wer Admin ist, sieht links bei Team eine rote Zahl, sobald jemand wartet. Dort schaltest du neue Kollegen mit einem Klick frei. Hier kannst du auch jemanden zum Admin machen oder einen Zugang wieder entfernen."
+ },
+ {
+  "id": "ov_side",
+  "text": "Links findest du das Menü mit allen Bereichen. Pausenreservierung, Packliste, Summe, Abrechnung, Veranstaltungen, Kalender und Statistiken."
+ },
+ {
+  "id": "ov_sync",
+  "text": "Ganz unten links siehst du, ob du verbunden bist. Steht dort Live mit dem Team mit einem grünen Punkt, sehen alle Kollegen deine Buchungen sofort auf ihrem Gerät. Egal ob am Tablet an der Theke oder am Handy."
+ },
+ {
+  "id": "ne_warn",
+  "text": "Achtung, dabei werden alle Reservierungen und auch die komplette Abrechnung vom letzten Mal gelöscht. Nur die Zahlen für die Statistiken bleiben erhalten. Lade die Excel-Datei vom letzten Abend also immer vorher herunter."
+ },
+ {
+  "id": "p3_comp",
+  "text": "Zum Drehen ziehst du den Kompass unten rechts. Mit Plus und Minus darunter zoomst du. Am Handy drehst du einfach mit zwei Fingern."
+ },
+ {
+  "id": "d_btn",
+  "text": "Manchmal weiß der Gast zuerst nur, was er trinken möchte. Dafür gibt es oben rechts den roten Knopf Neue Bestellung. Tipp ihn an, dann öffnet sich das Bestellfenster erst mal ohne Tisch."
+ },
+ {
+  "id": "z_spot",
+  "text": "Im Plan siehst du danach an der Theke sogar die Gäste mit ihren Getränken. So erkennst du auf einen Blick, welche Plätze schon vergeben sind."
+ },
+ {
+  "id": "st_tab",
+  "text": "Neu sind die Statistiken. Tipp links auf Statistiken. Oben siehst du sofort, wie viel vorbestellt wurde, wie viele Reservierungen es gibt und wie voll die Tische sind."
+ },
+ {
+  "id": "st_charts",
+  "text": "Darunter zeigen dir Grafiken, welche Kategorien am meisten Umsatz bringen, wo im Foyer bestellt wird und welche Produkte am beliebtesten sind."
+ },
+ {
+  "id": "st_3d",
+  "text": "Ein paar Zahlen gibt es sogar in drei D, als Skyline und als Getränketurm. Zum Drehen ziehst du einfach mit der Maus oder dem Finger."
+ },
+ {
+  "id": "st_hist",
+  "text": "Nach jeder Veranstaltung landen die Zahlen automatisch im Verlauf. Oben bei Ansicht wählst du eine frühere Veranstaltung oder alle zusammen."
+ },
+ {
+  "id": "st_all",
+  "text": "Dann siehst du zum Beispiel den Umsatz je Veranstaltung, die Rekord-Pause und an welchem Wochentag am meisten los ist."
+ },
+ {
+  "id": "st_save",
+  "text": "Mit Verlauf sichern lädst du den ganzen Verlauf zusätzlich als Datei herunter. Mit Verlauf laden holst du ihn wieder rein."
+ },
+ {
+  "id": "pa_btn",
+  "text": "Stehen die Tische mal anders, passt du den Plan selbst an. Tipp dafür im Tischplan oben rechts auf Editor."
+ },
+ {
+  "id": "pa_done",
+  "text": "Ganz wichtig, erst mit Fertig wird der neue Plan gespeichert und für das ganze Team übernommen. Standardplan holt den ursprünglichen Plan zurück, falls mal etwas schiefgeht."
+ },
+ {
+  "id": "f_wait",
+  "text": "Du kommst nicht rein und siehst nur Wartet auf Freigabe? Dann ist dein Konto noch nicht freigeschaltet. Sag einfach Nico Bescheid."
+ },
+ {
+  "id": "f_offline",
+  "text": "Unten links steht Offline, wird nachgeholt? Dann hat das Gerät gerade kein Internet. Du kannst trotzdem weiterbuchen. Sobald die Verbindung wieder da ist, wird alles nachgeholt."
+ }
+]
